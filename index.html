@@ -1,0 +1,623 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Infinity Aqua Pure | Pure Water · Infinite Trust</title>
+  <!-- Google Fonts + Font Awesome for clean icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefefe;
+      color: #1a2a3a;
+      scroll-behavior: smooth;
+      line-height: 1.4;
+    }
+
+    /* brand color palette: deep aqua, fresh white, subtle teal */
+    :root {
+      --deep-ocean: #0B3B4F;
+      --pure-aqua: #00A3C4;
+      --soft-sky: #E1F5FA;
+      --mist-white: #F9FCFD;
+      --granite: #2C4A5E;
+      --gold-accent: #DCB572;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header & navigation */
+    .navbar {
+      background: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(0px);
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 18px 0;
+    }
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .brand-name {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #0B3B4F 0%, #0085A5 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .brand-tag {
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--soft-sky);
+      padding: 4px 10px;
+      border-radius: 40px;
+      color: var(--deep-ocean);
+      margin-left: 8px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--granite);
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--pure-aqua);
+    }
+    .contact-btn {
+      background: var(--pure-aqua);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .contact-btn:hover {
+      background: #0c7e99;
+      transform: translateY(-2px);
+    }
+
+    /* hero section with brand advertising vibe */
+    .hero {
+      background: linear-gradient(110deg, #EFFAFD 0%, #FFFFFF 100%);
+      padding: 70px 0 80px 0;
+      border-bottom: 1px solid rgba(0,163,196,0.15);
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      justify-content: space-between;
+    }
+    .hero-content {
+      flex: 1.2;
+    }
+    .hero-badge {
+      background: rgba(0,163,196,0.12);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--pure-aqua);
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: var(--deep-ocean);
+    }
+    .hero-highlight {
+      color: var(--pure-aqua);
+      border-bottom: 3px solid var(--gold-accent);
+      display: inline-block;
+    }
+    .hero-description {
+      font-size: 1.2rem;
+      color: #2c4a5ecc;
+      max-width: 500px;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+    .cta-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--pure-aqua);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 48px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 5px 12px rgba(0,163,196,0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-primary:hover {
+      background: #0c7e99;
+      transform: scale(1.02);
+    }
+    .btn-outline {
+      border: 2px solid var(--pure-aqua);
+      background: transparent;
+      padding: 10px 28px;
+      border-radius: 48px;
+      font-weight: 700;
+      color: var(--pure-aqua);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: var(--pure-aqua);
+      color: white;
+    }
+    .hero-image {
+      flex: 1;
+      background: radial-gradient(circle at 30% 20%, rgba(0,163,196,0.08), transparent);
+      border-radius: 60px;
+      padding: 20px;
+      text-align: center;
+    }
+    /* mock bottle showcase - brand advertising imagery */
+    .bottle-showcase {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+    .bottle-card {
+      background: white;
+      border-radius: 48px;
+      padding: 20px 20px 18px;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.08);
+      transition: 0.25s;
+      text-align: center;
+      width: 160px;
+      border: 1px solid #e2f0f5;
+    }
+    .bottle-card:hover {
+      transform: translateY(-8px);
+    }
+    .bottle-icon {
+      font-size: 4.8rem;
+      color: var(--pure-aqua);
+      filter: drop-shadow(2px 6px 12px rgba(0,163,196,0.2));
+    }
+    .bottle-card p {
+      font-weight: 700;
+      margin-top: 12px;
+      color: var(--deep-ocean);
+      font-size: 1rem;
+    }
+    .bottle-sub {
+      font-size: 0.75rem;
+      color: #668196;
+      font-weight: 500;
+    }
+    .note-no-price {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: #a0bbca;
+      font-style: italic;
+    }
+
+    /* tagline section */
+    .trust-section {
+      background: var(--mist-white);
+      padding: 70px 0;
+      text-align: center;
+    }
+    .trust-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--deep-ocean);
+    }
+    .trust-quote {
+      max-width: 720px;
+      margin: 16px auto 32px;
+      font-size: 1.3rem;
+      color: #2c4a5e;
+    }
+    .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .pillar {
+      flex: 1;
+      min-width: 180px;
+      background: white;
+      border-radius: 36px;
+      padding: 28px 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: all 0.2s;
+    }
+    .pillar i {
+      font-size: 2.8rem;
+      color: var(--pure-aqua);
+      margin-bottom: 20px;
+    }
+    .pillar h4 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    /* product / brand imagery area — no rates, only visual branding */
+    .product-glimpse {
+      padding: 80px 0;
+      background: white;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+      color: var(--deep-ocean);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 35px;
+    }
+    .gallery-item {
+      background: #F6FCFE;
+      border-radius: 40px;
+      padding: 25px 20px;
+      width: 260px;
+      text-align: center;
+      transition: 0.2s;
+      border: 1px solid #e9f3f7;
+    }
+    .gallery-item i {
+      font-size: 5rem;
+      color: #0799b9;
+      margin-bottom: 15px;
+    }
+    .gallery-item h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .gallery-item p {
+      color: #3a6379;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* company info from your file (FSSAI, location) */
+    .company-badge {
+      background: linear-gradient(145deg, #0B3B4F 0%, #115d78 100%);
+      color: white;
+      padding: 48px 0;
+      text-align: center;
+    }
+    .info-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      align-items: center;
+    }
+    .info-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(2px);
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-weight: 500;
+    }
+    .info-card i {
+      margin-right: 10px;
+    }
+    .fssai-number {
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+
+    /* footer */
+    footer {
+      background: #08232e;
+      color: #cbdbe6;
+      padding: 48px 0 28px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-logo h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+    }
+    .footer-logo p {
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+    .contact-details i {
+      width: 28px;
+      color: var(--pure-aqua);
+    }
+    .contact-details p {
+      margin: 8px 0;
+    }
+    .copyright {
+      border-top: 1px solid #1f4b5e;
+      padding-top: 28px;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .nav-container {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .hero-grid {
+        flex-direction: column;
+      }
+      .trust-section h2 {
+        font-size: 1.9rem;
+      }
+    }
+    a, button {
+      cursor: pointer;
+    }
+    .no-rate-note {
+      font-size: 0.7rem;
+      text-align: center;
+      margin-top: 12px;
+      color: #9bb7c6;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-container">
+    <div class="logo-area">
+      <span class="brand-name">♾️ INFINITY AQUA PURE</span>
+      <span class="brand-tag">Pure Water · Infinite Trust</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#essence">Essence</a>
+      <a href="#purity">Our Promise</a>
+      <a href="#contact" class="contact-btn">Connect</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero visual + advertising image concept (no rates) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-tint"></i> since 2024 · Gujarat’s fineness</div>
+        <h1>Endless clarity,<br> <span class="hero-highlight">Infinite trust</span></h1>
+        <p class="hero-description">Infinity Aqua Pure brings you pristine packaged drinking water — crafted with advanced purification, delivering the taste of nature and the assurance of safety in every drop.</p>
+        <div class="cta-group">
+          <a href="#" class="btn-primary"><i class="fas fa-flask"></i> Discover purity</a>
+          <a href="#" class="btn-outline"><i class="fas fa-phone-alt"></i> Get in touch</a>
+        </div>
+        <div class="no-rate-note" style="margin-top: 28px;">
+          <i class="fas fa-chart-line"></i> Partner with us for bulk excellence — contact for customized solutions
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- brand advertising imagery: styled bottles (visual representation only, no prices) -->
+        <div class="bottle-showcase">
+          <div class="bottle-card">
+            <i class="fas fa-wine-bottle bottle-icon"></i>
+            <p>500 ml</p>
+            <span class="bottle-sub">Crisp & portable</span>
+          </div>
+          <div class="bottle-card">
+            <i class="fas fa-wine-bottle bottle-icon" style="font-size:5rem;"></i>
+            <p>1 Litre</p>
+            <span class="bottle-sub">Daily hydration</span>
+          </div>
+          <div class="bottle-card">
+            <i class="fas fa-water bottle-icon"></i>
+            <p>2 Litre</p>
+            <span class="bottle-sub">Family size</span>
+          </div>
+        </div>
+        <div class="note-no-price">
+          <i class="fas fa-shopping-cart"></i> Wholesale & retail excellence — request best offers
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline / Trust message (advertising angle) -->
+  <section class="trust-section" id="essence">
+    <div class="container">
+      <h2>💧 Beyond hydration · A promise of infinite purity</h2>
+      <div class="trust-quote">
+        “Every bottle of Infinity Aqua Pure is a testament to our commitment — from advanced reverse osmosis to ozonisation, we deliver water as nature intended, untouched and trustworthy.”
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <i class="fas fa-microscope"></i>
+          <h4>Lab Tested</h4>
+          <p>ISO & FSSAI certified processes</p>
+        </div>
+        <div class="pillar">
+          <i class="fas fa-leaf"></i>
+          <h4>Eco-conscious</h4>
+          <p>Responsible packaging & recycling</p>
+        </div>
+        <div class="pillar">
+          <i class="fas fa-hand-holding-heart"></i>
+          <h4>Infinite Trust</h4>
+          <p>Trusted by thousands across Gujarat</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product glory / brand advertising image zone (no price list, just premium imagery) -->
+  <section class="product-glimpse" id="purity">
+    <div class="container">
+      <div class="section-title">
+        <i class="fas fa-droplet" style="color: #00A3C4;"></i> The Infinity Experience
+      </div>
+      <div class="gallery">
+        <div class="gallery-item">
+          <i class="fas fa-filter"></i>
+          <h3>8-Step Purification</h3>
+          <p>UV + RO + Minerals</p>
+        </div>
+        <div class="gallery-item">
+          <i class="fas fa-certificate"></i>
+          <h3>FSSAI Approved</h3>
+          <p>Highest safety standards</p>
+        </div>
+        <div class="gallery-item">
+          <i class="fas fa-truck-fast"></i>
+          <h3>Rapid Logistics</h3>
+          <p>Pan-Gujarat distribution</p>
+        </div>
+        <div class="gallery-item">
+          <i class="fas fa-hand-sparkles"></i>
+          <h3>Premium Taste</h3>
+          <p>Balanced pH, smooth finish</p>
+        </div>
+      </div>
+      <!-- brand advertising visual: "Pure Water, Infinite Trust" graphic alternative -->
+      <div style="margin-top: 60px; background: linear-gradient(115deg, #E3F4F9, white); border-radius: 48px; padding: 35px 20px; text-align: center;">
+        <i class="fas fa-infinity" style="font-size: 3rem; color: #00A3C4; opacity: 0.7;"></i>
+        <h3 style="font-size: 1.9rem; margin: 12px 0; font-weight: 700;">Infinity Aqua Pure</h3>
+        <p style="max-width: 550px; margin: 0 auto; color: #2c4a5e;">Where purity is not a choice, it’s a tradition.<br> Trust the infinite standard — no compromises, no hidden details.<br> <strong>#InfiniteTrust</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company details (extracted from existing file: manufacturer, location, FSSAI, phone) -->
+  <div class="company-badge">
+    <div class="container">
+      <div class="info-wrapper">
+        <div class="info-card"><i class="fas fa-industry"></i> Manufactured & Packed by: Infinity Aqua Pure, Vapi, Gujarat</div>
+        <div class="info-card"><i class="fas fa-id-card"></i> FSSAI Lic No: <span class="fssai-number">20726025000108</span></div>
+        <div class="info-card"><i class="fas fa-phone-alt"></i> +91 77381 44911</div>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.85rem; opacity:0.8;"><i class="fas fa-map-marker-alt"></i> Vapi, Gujarat — serving pure hydration across western India</p>
+    </div>
+  </div>
+
+  <!-- Contact / Quote request (No rates displayed but call to action) -->
+  <section id="contact" style="padding: 70px 0; background: white;">
+    <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: var(--deep-ocean);">Connect with infinity</h2>
+      <p style="font-size: 1.1rem; margin: 16px 0 24px; color: #446d83;">Have questions? Want to become a distributor or request bulk orders? Our team is ready to assist you. No rate lists online — get personalized quotes and partnership info.</p>
+      <div style="background: #F4FBFE; border-radius: 48px; padding: 32px 28px; margin-top: 20px;">
+        <form action="#" method="post" style="display: flex; flex-direction: column; gap: 20px; max-width: 500px; margin: 0 auto;">
+          <input type="text" placeholder="Your name" style="padding: 14px 20px; border-radius: 60px; border: 1px solid #cfe4ec; font-size: 1rem;" required>
+          <input type="email" placeholder="Email address" style="padding: 14px 20px; border-radius: 60px; border: 1px solid #cfe4ec;" required>
+          <input type="tel" placeholder="Phone number" style="padding: 14px 20px; border-radius: 60px; border: 1px solid #cfe4ec;">
+          <textarea rows="3" placeholder="Tell us your requirement (wholesale, retail, partnership)..." style="padding: 14px 20px; border-radius: 30px; border: 1px solid #cfe4ec;"></textarea>
+          <button type="submit" style="background: var(--pure-aqua); color: white; border: none; padding: 14px; border-radius: 60px; font-weight: bold; font-size: 1rem; cursor: pointer;">Send inquiry <i class="fas fa-arrow-right"></i></button>
+          <p style="font-size: 0.7rem; margin-top: 10px;">We respect your privacy. No price details displayed — get a direct quote.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>♾️ INFINITY AQUA PURE</h3>
+        <p>Pure Water · Infinite Trust</p>
+        <p style="margin-top: 12px;"><i class="fas fa-certificate"></i> FSSAI: 20726025000108</p>
+      </div>
+      <div class="contact-details">
+        <p><i class="fas fa-map-pin"></i> Vapi, Gujarat, India</p>
+        <p><i class="fas fa-phone-alt"></i> +91 77381 44911</p>
+        <p><i class="fas fa-envelope"></i> hello@infinityaquapure.com</p>
+      </div>
+      <div>
+        <p><i class="fas fa-tint"></i> Manufactured with care in India</p>
+        <div style="margin-top: 12px;">
+          <i class="fab fa-instagram" style="margin-right: 15px; font-size: 1.4rem;"></i>
+          <i class="fab fa-facebook" style="margin-right: 15px; font-size: 1.4rem;"></i>
+          <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 Infinity Aqua Pure — Pure water, infinite trust. All rights reserved. | Designed for purity
+    </div>
+  </div>
+</footer>
+
+<!-- subtle script to handle form submission prevention (demo) and avoid page reload -->
+<script>
+  document.querySelector('form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('✨ Thank you for reaching out! Our Infinity Aqua Pure team will contact you shortly with wholesale options and partnership details. No price lists online — we provide custom quotes.');
+    this.reset();
+  });
+  // smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === "#" || href === "") return;
+      const targetElem = document.querySelector(href);
+      if (targetElem) {
+        e.preventDefault();
+        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
+```
